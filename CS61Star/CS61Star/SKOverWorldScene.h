@@ -19,6 +19,7 @@
 @property (retain, nonatomic) NSMutableArray* npcList;
 @property (retain, nonatomic) NSMutableArray* hudElements;
 // Changes the current map, and returns the old map
+-(id)initWithMap:(CCTMXTiledMap*)map;
 -(id)changeMap:(CCTMXTiledMap*)newMap;
 
 @end

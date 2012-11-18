@@ -10,11 +10,12 @@
 
 @implementation SKModelObject
 
--(id)initWithName: NSString* name
+
+-(id) initWithName: (NSString*) thename
 {
     self = [super init];
     if (self){
-        self.name = name;
+        name = thename;
     }
     return self;
 }

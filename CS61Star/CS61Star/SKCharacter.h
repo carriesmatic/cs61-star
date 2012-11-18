@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "SKModelObject.h"
 
-@interface SKCharacter : SKObject
+@interface SKCharacter : SKModelObject
 {
     // Primary attributes
     NSInteger max_hdd; // hdd, aka health (In MB)

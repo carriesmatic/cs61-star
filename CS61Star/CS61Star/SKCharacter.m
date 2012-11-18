@@ -10,7 +10,7 @@
 
 @implementation SKCharacter
 
--(id) initWithName: NSString* name
+-(id) initWithName: (NSString*) name
 {
     self = [super initWithName: name];
     if(self)
@@ -29,7 +29,7 @@
     return self;
 }
 
--(id) initWithAttrs: NSString* name, NSDictionary* attrs
+-(id) initWithAttrs: (NSString*) name attrs: (NSDictionary*) attrs
 {
     // Generally used for recreating a character from a game save
     self = [super initWithName: name];
@@ -43,7 +43,7 @@
         exp = [attrs valueForKey: @"exp"];
         
         proc_speed = [attrs valueForKey: @"proc_speed"];
-        runtime_speed = [attrs valueForKey @"runtime_speed"];
+        runtime_speed = [attrs valueForKey: @"runtime_speed"];
     }
 }
 

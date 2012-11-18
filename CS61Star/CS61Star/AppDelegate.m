@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HelloWorldLayer.h"
+#import "SKOverWorldScene.h"
 
 @implementation CS61StarAppDelegate
 @synthesize window=window_, glView=glView_;
@@ -32,8 +33,9 @@
 	
 	// Center main window
 	[window_ center];
-	
-	[director runWithScene:[HelloWorldLayer scene]];
+	CCTMXTiledMap* map = [[CCTMXTiledMap alloc] initWithTMXFile:@"testmap.tmx"];
+    SKOverWorldScene* world = [[SKOverWorldScene alloc] initWithMap: map];
+	[director runWithScene:world];
 }
 
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed: (NSApplication *) theApplication

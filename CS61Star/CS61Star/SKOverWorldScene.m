@@ -26,6 +26,17 @@
     return self;
 }
 
+-(id)initWithMap: (CCTMXTiledMap*) map
+{
+    self = [super init];
+    if(self)
+    {
+        currentMap = [map retain];
+        [self addChild:currentMap];
+    }
+    return self;
+}
+
 -(void)draw
 {
     // Render this scene
@@ -36,6 +47,7 @@
     [self removeChild:currentMap cleanup:YES];
     CCTMXTiledMap* oldMap = [currentMap autorelease];
     currentMap = [newMap retain];
+    [self addChild:currentMap];
     return oldMap;
 }
 

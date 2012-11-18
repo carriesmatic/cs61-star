@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="LOL" value="ROFL"/>
+ </properties>
+ <tileset firstgid="1" name="terrain_atlas" tilewidth="32" tileheight="32">
+  <image source="terrain_atlas.png" width="1024" height="1024"/>
+ </tileset>
+ <layer name="Bottom" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxrZGZgaCKAm4F4IRAvIoAXj6rDqe4gEB8igA8DMQAbY0B1
+  </data>
+ </layer>
+ <layer name="Mid" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBh5IJSZgSEMiMOZ8asrhcqXE1A3FSg/DYinE1BHDAAAiu8DyQ==
+  </data>
+ </layer>
+ <objectgroup name="Lol" width="10" height="10">
+  <object name="Destiny" type="NSObject" gid="971" x="170" y="181">
+   <properties>
+    <property name="Health" value="321"/>
+    <property name="Mana" value="112"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="Top" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxzZ2Zg8CCAPYE4HYgzCOBMIG4H4g4CuBOIRwF2AABeFgyL
+  </data>
+ </layer>
+</map>
