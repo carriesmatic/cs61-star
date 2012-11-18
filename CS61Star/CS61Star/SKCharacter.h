@@ -8,9 +8,20 @@
 //  game.
 
 #import <Foundation/Foundation.h>
+#import "SKModelObject.h"
 
-@interface SKCharacter : NSObject
+@interface SKCharacter : SKObject
 {
+    // Primary attributes
+    NSInteger max_hdd; // hdd, aka health (In MB)
+    NSInteger max_ram; // ram, aka mana (In MB)
+    NSInteger curr_hdd; // current hdd
+    NSInteger curr_ram; // current ram
+    NSInteger exp; // Player experience
+    
+    // Secondary attributes
+    NSInteger proc_speed; // Processor speed
+    NSInteger runtime_speed; // Runtime speed
     
 }
 
