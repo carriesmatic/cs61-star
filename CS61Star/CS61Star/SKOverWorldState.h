@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SKGameState.h"
 
-@interface SKOverWorldState : NSObject
+@interface SKOverWorldState : SKGameState
+
+-(void)update;
 
 @end

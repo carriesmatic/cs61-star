@@ -15,4 +15,7 @@
 {
     NSString* name; // The identifying name of this model
 }
+
+-(id) initWithName: (NSString*) thename;
+
 @end

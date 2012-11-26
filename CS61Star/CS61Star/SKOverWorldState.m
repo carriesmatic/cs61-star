@@ -7,7 +7,25 @@
 //
 
 #import "SKOverWorldState.h"
-
+#import "SKOverWorldScene.h"
 @implementation SKOverWorldState
+
+-(id)init
+{
+    
+    self = [super init];
+    if(self)
+    {
+        CCTMXTiledMap* map = [[CCTMXTiledMap alloc] initWithTMXFile:@"testmap.tmx"];
+        currScene = [[SKOverWorldScene alloc] initWithMap: map];
+    }
+    
+    return self;
+}
+
+-(void)update
+{
+    
+}
 
 @end

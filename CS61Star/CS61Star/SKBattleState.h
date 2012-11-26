@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SKGameState.h"
 
-@interface SKBattleState : NSObject
+@interface SKBattleState : SKGameState
 
 @end

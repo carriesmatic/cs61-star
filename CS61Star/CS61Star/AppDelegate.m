@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HelloWorldLayer.h"
 #import "SKOverWorldScene.h"
+#import "SKControllerEngine.h"
 
 @implementation CS61StarAppDelegate
 @synthesize window=window_, glView=glView_;
@@ -30,9 +31,9 @@
 	
 	// Enable "moving" mouse event. Default no.
 	[window_ setAcceptsMouseMovedEvents:NO];
-	
 	// Center main window
 	[window_ center];
+    SKControllerEngine* controller = [[SKControllerEngine alloc] init];
 	CCTMXTiledMap* map = [[CCTMXTiledMap alloc] initWithTMXFile:@"testmap.tmx"];
     SKOverWorldScene* world = [[SKOverWorldScene alloc] initWithMap: map];
 	[director runWithScene:world];

@@ -12,14 +12,20 @@
 
 #import <Cocoa/Cocoa.h>
 #import "CCScene.h"
+#import "CCNode.h"
+#import "SKGameState.h"
+#import "cocos2d.h"
+#import "SKModelLogic.h"
 
-@interface SKControllerEngine : NSObject
+@interface SKControllerEngine : CCNode
 {
-    CCScene* currScene;
+    SKGameState* currState;
+    CCDirectorMac* director;
+    SKModelLogic* data; // Manages the model data
     
 }
 
 -(BOOL) loadGameState;
 -(BOOL) saveGameState;
-
+-(CCScene*) getCurrentScene;
 @end
