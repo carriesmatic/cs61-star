@@ -25,7 +25,9 @@
     
 }
 
+
 -(BOOL) loadGameState;
 -(BOOL) saveGameState;
 -(CCScene*) getCurrentScene;
++(SKControllerEngine*) getSharedEngine;
 @end

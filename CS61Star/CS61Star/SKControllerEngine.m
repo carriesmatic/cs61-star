@@ -12,6 +12,8 @@
 #import "SKTitleScreenState.h"
 @implementation SKControllerEngine
 
+SKControllerEngine* shared;
+
 -(id)init
 {
     self = [super init];
@@ -32,6 +34,14 @@
         // When the engine is first inititalized, there is no need to create the data management
         // since we have not necessarily started the game yet. We will leave this to when a new game
         // or a loaded game is started
+        
+        // Make the engine globally accessable
+        
+        if(!shared)
+        {
+            shared = self; //(Just in case)
+        }
+        
     }
     
     return self;
@@ -108,6 +118,11 @@
 -(CCScene*) getCurrentScene
 {
     return [currState getCurrentScene];
+}
+
++(SKControllerEngine*) getSharedEngine
+{
+    return shared;
 }
 
 @end
