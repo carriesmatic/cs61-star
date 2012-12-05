@@ -33,9 +33,8 @@
 	// Center main window
 	[window_ center];
     SKControllerEngine* controller = [[SKControllerEngine alloc] init];
-	CCTMXTiledMap* map = [[CCTMXTiledMap alloc] initWithTMXFile:@"testmap.tmx"];
-    SKOverWorldScene* world = [[SKOverWorldScene alloc] initWithMap: map];
-	[director runWithScene:world];
+
+	[director runWithScene:[controller getCurrentScene]];
 }
 
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed: (NSApplication *) theApplication

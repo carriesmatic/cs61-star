@@ -20,7 +20,10 @@
     self = [super init];
     if(self)
     {
-        // set up stuff
+        currentMap = [[CCTMXTiledMap alloc] initWithTMXFile:@"testmap.tmx"];
+        [self addChild:currentMap];
+        hud = [[SKOverworldHUDLayer alloc] init];
+        
     }
     
     return self;

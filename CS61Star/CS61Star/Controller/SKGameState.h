@@ -16,6 +16,8 @@
     CCScene* currScene;
 }
 
+@property (nonatomic, retain) CCScene* currScene;
+
 -(void)update:(ccTime)dt;
 -(CCScene*) getCurrentScene;
 

@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "SKOverworldHUDLayer.h"
 
 @interface SKOverWorldScene : CCScene {
     CCTMXTiledMap* currentMap;
     NSMutableArray* npcList;
     NSMutableArray* hudElements;
+    SKOverworldHUDLayer* hud;
 }
 
 @property (retain, nonatomic) CCTMXTiledMap* currentMap;

@@ -11,6 +11,7 @@
 
 @implementation SKGameState
 
+@synthesize currScene;
 
 -(void)update:(ccTime)dt
 {
@@ -19,6 +20,6 @@
 
 -(CCScene*)getCurrentScene
 {
-    return self.getCurrentScene;
+    return [self currScene];
 }
 @end
