@@ -18,7 +18,7 @@
     
     if(self)
     {
-        self.layer = [SKOverWorldLayer alloc];
+        self.layer = [[SKOverWorldLayer alloc] init];
         [self addChild: self.layer];
     }
     
