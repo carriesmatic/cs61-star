@@ -138,12 +138,14 @@
                 CCLOG(@"Left Arrow pressed");
                 CGPoint movePosition = ccp(-32,0);
                 [self movePlayer:movePosition withDirection:LEFT];
+
                 return YES;
             }
             if ( keyChar == NSRightArrowFunctionKey ) {
                 CCLOG(@"Right Arrow pressed");
                 CGPoint movePosition = ccp(32,0);
                 [self movePlayer:movePosition withDirection:RIGHT];
+
                 return YES;
             }
             if ( keyChar == NSUpArrowFunctionKey ) {
@@ -153,9 +155,10 @@
                 return YES;
             }
             if ( keyChar == NSDownArrowFunctionKey ) {
+                CCLOG(@"Down Arrow Pressed");
+
                 CGPoint movePosition = ccp(0,-32);
                 [self movePlayer:movePosition withDirection:DOWN];
-                CCLOG(@"Down Arrow Pressed");
                 return YES;
             }
         }

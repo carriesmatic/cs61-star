@@ -18,11 +18,8 @@
     
     if(self)
     {
-        currentMap = [[CCTMXTiledMap alloc] initWithTMXFile:@"testmap.tmx"];
-        [self addChild:currentMap];
-        hud = [[SKOverworldHUDLayer alloc] init];
-        [self addChild:hud];
-        
+        self.layer = [[SKOverWorldLayer alloc] init];
+        [self addChild: self.layer];
     }
     
     return self;
