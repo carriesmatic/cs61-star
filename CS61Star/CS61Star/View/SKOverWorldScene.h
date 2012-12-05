@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "SKOverworldHUDLayer.h"
+#import "SKOverWorldLayer.h"
 
 @interface SKOverWorldScene : CCScene {
     CCTMXTiledMap* currentMap;
@@ -17,9 +18,8 @@
     SKOverworldHUDLayer* hud;
 }
 
-@property (retain, nonatomic) CCTMXTiledMap* currentMap;
-@property (retain, nonatomic) NSMutableArray* npcList;
-@property (retain, nonatomic) NSMutableArray* hudElements;
+@property (retain, nonatomic) SKOverWorldLayer* layer;
+
 // Changes the current map, and returns the old map
 -(id)initWithMap:(CCTMXTiledMap*)map;
 -(id)changeMap:(CCTMXTiledMap*)newMap;
