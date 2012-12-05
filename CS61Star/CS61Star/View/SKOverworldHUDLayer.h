@@ -7,7 +7,10 @@
 //
 
 #import "CCLayer.h"
+#import "CCMenuItem.h"
 
 @interface SKOverworldHUDLayer : CCLayer
+
+-(id)doSomething: (CCMenuItem*) menuitem;
 
 @end

@@ -23,6 +23,7 @@
         currentMap = [[CCTMXTiledMap alloc] initWithTMXFile:@"testmap.tmx"];
         [self addChild:currentMap];
         hud = [[SKOverworldHUDLayer alloc] init];
+        [self addChild:hud];
         
     }
     

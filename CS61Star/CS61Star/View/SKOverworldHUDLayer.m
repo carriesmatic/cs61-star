@@ -17,14 +17,23 @@
     
     if(self)
     {
-        CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"myFirstButton.png"
-                                                            selectedImage: @"myFirstButton_selected.png"
+        CCMenu * myMenu = [CCMenu menuWithItems:nil];
+        CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"testbutton.png"
+                                                            selectedImage: @"testbutton.png"
                                                                    target:self
                                                                  selector:@selector(doSomething:)];
-        [self addChild: menuItem1];
+        [myMenu addChild: menuItem1];
+        [myMenu alignItemsVertically];
+        [myMenu alignItemsHorizontally];
+        [self addChild:myMenu];
     }
     
     return self;
+}
+
+-(id)doSomething: (CCMenuItem*) menuitem
+{
+    return nil;
 }
 
 @end
