@@ -7,20 +7,19 @@
 //
 
 #import "SKOverWorldScene.h"
+#import "SKOverWorldLayer.h"
 
 
 @implementation SKOverWorldScene
 
-@synthesize currentMap;
-@synthesize npcList;
-@synthesize hudElements;
-
 -(id)init
 {
     self = [super init];
+    
     if(self)
     {
-        // set up stuff
+        self.layer = [SKOverWorldLayer alloc];
+        [self addChild: self.layer];
     }
     
     return self;
@@ -31,8 +30,8 @@
     self = [super init];
     if(self)
     {
-        currentMap = [map retain];
-        [self addChild:currentMap];
+        self.layer = [[SKOverWorldLayer alloc] initWithMap: map];
+        [self addChild: _layer];
     }
     return self;
 }
@@ -44,11 +43,14 @@
 
 -(id)changeMap:(CCTMXTiledMap *)newMap
 {
-    [self removeChild:currentMap cleanup:YES];
-    CCTMXTiledMap* oldMap = [currentMap autorelease];
-    currentMap = [newMap retain];
-    [self addChild:currentMap];
-    return oldMap;
+    [self.layer changeMap:newMap];
+}
+
+-(void)dealloc
+{
+    [self.layer dealloc];
+    
+    [super dealloc];
 }
 
 @end
