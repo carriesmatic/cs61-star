@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "HelloWorldLayer.h"
 #import "SKOverWorldScene.h"
 #import "SKControllerEngine.h"
 
