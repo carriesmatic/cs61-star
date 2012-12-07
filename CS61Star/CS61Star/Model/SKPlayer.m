@@ -72,7 +72,7 @@
         CCAnimation *walkUpAnim = [CCAnimation animationWithSpriteFrames:walkUpAnimFrames delay:0.3f];
         CCAnimation *walkLeftAnim = [CCAnimation animationWithSpriteFrames:walkLeftAnimFrames delay:0.3f];
         CCAnimation *walkRightAnim = [CCAnimation animationWithSpriteFrames:walkRightAnimFrames delay:0.3f];
-        CCAnimation *battleAnim = [CCAnimation animationWithSpriteFrames:battleAnimFrames delayPerUnit:.3f];
+        CCAnimation *battleAnim = [CCAnimation animationWithSpriteFrames:battleAnimFrames delay:.3f];
         
         // Create the sprite and set up the animation objects
         CGSize winSize = [CCDirector sharedDirector].winSize;
