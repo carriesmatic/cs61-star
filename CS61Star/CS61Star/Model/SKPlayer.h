@@ -39,7 +39,7 @@
 -(CCSpriteBatchNode*) getSpriteSheet;
 -(void) changeDirection:(Direction)direction;
 -(void) move:(CGPoint)directionOffset withDirection:(Direction)direction;
-
+-(CGPoint) getMovePosition: (CGPoint)directionOffset;
 
 
 @end

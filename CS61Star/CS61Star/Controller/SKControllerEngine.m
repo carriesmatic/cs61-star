@@ -10,6 +10,7 @@
 #import "SKOverWorldState.h"
 #import "SKBattleState.h"
 #import "SKTitleScreenState.h"
+#import "SimpleAudioEngine.h"
 @implementation SKControllerEngine
 
 @synthesize thePlayer = _thePlayer;
@@ -71,12 +72,16 @@ SKControllerEngine* shared;
     [currState autorelease];
     currState = [[SKOverWorldState alloc] init];
     [director runWithScene: [currState getCurrentScene]];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"dungeon.caf"];
 }
 
 -(void) changeToBattle
 {
     currState = [[SKBattleState alloc] init];
     [director pushScene: [CCTransitionPageTurn transitionWithDuration:0.5f scene:[currState getCurrentScene] backwards:NO]];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"battle.caf"];
+    
 }
 
 -(void) changeToTitle
@@ -90,6 +95,8 @@ SKControllerEngine* shared;
 {
     // Starts a new game!
     currState = [[SKOverWorldState alloc] init];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"dungeon.caf"];
+    
 }
 
 -(BOOL) loadGameState

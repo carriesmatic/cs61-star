@@ -125,17 +125,9 @@
 
 -(void)move:(CGPoint)directionOffset withDirection:(Direction)direction
 {
-    CGSize size = [[CCDirector sharedDirector] winSize];
     CGPoint pythonPosition = [_python position];
     float newXPosition = pythonPosition.x + directionOffset.x;
     float newYPosition = pythonPosition.y + directionOffset.y;
-    
-//    if ((newXPosition < 0.0f) || (newYPosition < 0.0f)) {
-//        return; // Do not move
-//    }
-//    if ((newXPosition > size.width) || (newYPosition > size.height)) {
-//        return; // Do not move
-//    }
     
     [_python setPosition:ccp(newXPosition,newYPosition)];
     [self changeDirection: direction];
@@ -145,6 +137,15 @@
 {
     [_python stopAllActions];
     [_python runAction:_battleAction];
+}
+
+-(CGPoint)getMovePosition:(CGPoint)directionOffset
+{
+    CGPoint pythonPosition = [_python position];
+    float newXPosition = pythonPosition.x + directionOffset.x;
+    float newYPosition = pythonPosition.y + directionOffset.y;
+    
+    return ccp(newXPosition,newYPosition);
 }
 
 -(void) dealloc
