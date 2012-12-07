@@ -12,6 +12,10 @@
 @interface SKOverworldHUDLayer : CCLayer
 {
     CCSprite* _statHUD;
+    CCSprite* _statHUDshadow;
+    CCSprite* _hddbar;
+    CCSprite* _rambar;
+    CCSprite* _expbar;
 }
 
 
