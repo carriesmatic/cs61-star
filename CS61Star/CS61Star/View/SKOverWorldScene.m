@@ -12,14 +12,20 @@
 
 @implementation SKOverWorldScene
 
+@synthesize mapLayer = _mapLayer;
+@synthesize hudLayer = _hudLayer;
+
+
+
 -(id)init
 {
     self = [super init];
     
     if(self)
     {
-        self.layer = [[SKOverWorldLayer alloc] init];
-        [self addChild: _layer];
+        self.mapLayer = [[SKOverWorldLayer alloc] init];
+        
+        [self addChild: self.mapLayer];
     }
     
     return self;
@@ -30,8 +36,8 @@
     self = [super init];
     if(self)
     {
-        self.layer = [[SKOverWorldLayer alloc] initWithMap: map];
-        [self addChild: _layer];
+        self.mapLayer = [[SKOverWorldLayer alloc] initWithMap: map];
+        [self addChild: self.mapLayer];
     }
     return self;
 }
@@ -43,14 +49,16 @@
 
 -(void)changeMap:(CCTMXTiledMap *)newMap
 {
-    [self.layer changeMap:newMap];
+    [self.mapLayer changeMap:newMap];
 }
 
 -(void)dealloc
 {
-    [self.layer dealloc];
+    [self.mapLayer release];
     
     [super dealloc];
 }
+
+
 
 @end

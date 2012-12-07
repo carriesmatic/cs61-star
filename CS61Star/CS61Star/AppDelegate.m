@@ -23,12 +23,13 @@
 	// EXPERIMENTAL stuff.
 	// 'Effects' don't work correctly when autoscale is turned on.
 	// Use kCCDirectorResize_NoScale if you don't want auto-scaling.
-	[director setResizeMode:kCCDirectorResize_AutoScale];
+    [director setResizeMode:kCCDirectorResize_NoScale];
 	
 	// Enable "moving" mouse event. Default no.
 	[window_ setAcceptsMouseMovedEvents:NO];
 	// Center main window
 	[window_ center];
+
     SKControllerEngine* controller = [[SKControllerEngine alloc] init];
 
 	[director runWithScene:[[controller getCurrentState] getCurrentScene]];
