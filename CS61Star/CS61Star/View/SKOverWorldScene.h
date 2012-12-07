@@ -10,17 +10,18 @@
 #import "cocos2d.h"
 #import "SKOverworldHUDLayer.h"
 #import "SKOverWorldLayer.h"
+#import "SKDialogueBoxLayer.h"
 
 @interface SKOverWorldScene : CCScene {
     SKOverworldHUDLayer* _hudLayer;
     SKOverWorldLayer* _mapLayer;
-//    SKDialogueBoxLayer* _dialogueLayer;
+    SKDialogueBoxLayer* _dialogueLayer;
 
 }
 
 @property (retain, nonatomic) SKOverworldHUDLayer* hudLayer;
 @property (retain, nonatomic) SKOverWorldLayer* mapLayer;
-//@property (retain, nonatomic) SKDialogueBoxLayer* dialogueLayer;
+@property (retain, nonatomic) SKDialogueBoxLayer* dialogueLayer;
 
 
 

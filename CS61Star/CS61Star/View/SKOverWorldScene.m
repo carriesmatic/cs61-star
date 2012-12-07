@@ -13,6 +13,7 @@
 @implementation SKOverWorldScene
 
 @synthesize mapLayer = _mapLayer;
+@synthesize dialogueLayer = _dialogueLayer;
 @synthesize hudLayer = _hudLayer;
 
 

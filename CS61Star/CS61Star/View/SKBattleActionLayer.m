@@ -83,4 +83,30 @@
     return self;
 }
 
+-(BOOL) ccKeyDown:(NSEvent *)event
+{
+    NSLog(@"key down: %@", [event characters] );
+    if (![event modifierFlags])
+    {
+        NSString *someKey = [event charactersIgnoringModifiers];
+
+        char keyChar = 0;
+        if ( [someKey length] == 0 )
+            return YES;            // reject dead keys
+        if ( [someKey length] == 1 ) {
+            keyChar = [someKey characterAtIndex:0];
+            
+            NSLog(@"%@", keyChar);
+            if ( keyChar == (char)@"z" ) {
+                NSLog(@"Hello");
+                return YES;
+            }
+        }
+        
+        
+    }
+    return NO;
+}
+
+
 @end
