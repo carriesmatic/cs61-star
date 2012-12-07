@@ -16,10 +16,6 @@
     
     if (self)
     {
-        
-        // Get window size
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
-        
         _statBar = [CCSprite spriteWithFile:@"hudoverlay.png"];
         
         // Stop antialiasing

@@ -22,6 +22,14 @@
         [self.currentMap setScale:5];
         
         [self addChild:self.currentMap];
+        
+        CGSize winSize = [CCDirector sharedDirector].winSize;
+        
+        CCLayerColor* fadeLayer = [CCLayerColor layerWithColor: ccc4(183, 195, 182, 255) width: winSize.width height: winSize.height/2];
+        CCLayerColor* borderLayer = [CCLayerColor layerWithColor: ccc4(0, 0, 0, 255) width: winSize.width height: winSize.height/2 + 10];
+        
+        [self addChild: borderLayer];
+        [self addChild: fadeLayer];
     }
     
     return self;

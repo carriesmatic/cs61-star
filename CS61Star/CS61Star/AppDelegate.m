@@ -15,6 +15,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    
+    // If you are using "NSTimer" Director you could set a very low interval
+    [[CCDirector sharedDirector] setAnimationInterval:1/240.0];
+    
 	CCDirectorMac *director = (CCDirectorMac*) [CCDirector sharedDirector];
 	
 	// connect the OpenGL view with the director
