@@ -8,6 +8,7 @@
 
 #import "SKOverWorldLayer.h"
 
+
 @implementation SKOverWorldLayer
 
 @synthesize currentMap;
@@ -42,6 +43,8 @@
     self = [super init];
     if(self)
     {
+        
+        
         // Enable keyboard
         self.isKeyboardEnabled = YES;
 
@@ -82,11 +85,12 @@
         
         // Set the player coordinates to the spawn point
         
-        [thePlayer.python setPosition: ccp(x + 16,y + 22)];
+        [thePlayer.python setPosition: ccp(x + 16, y + 22)];
 
 
         [currentMap addChild: spriteSheet z:3];
         [self setViewpointCenter:thePlayer.python.position];
+        
         
     }
     return self;
@@ -164,7 +168,7 @@
     int x = MAX(position.x, winSize.width / 2);
     int y = MAX(position.y, winSize.height / 2);
     x = MIN(x, (currentMap.mapSize.width * currentMap.tileSize.width) - winSize.width / 2);
-    y = MIN(y, (currentMap.mapSize.height * currentMap.tileSize.height) - winSize.height/2);
+    y = MIN(y, (currentMap.mapSize.height * currentMap.tileSize.height) - winSize.height / 2);
     CGPoint actualPosition = ccp(x, y);
     
     CGPoint centerOfView = ccp(winSize.width/2, winSize.height/2);

@@ -10,4 +10,6 @@
 
 @implementation SKGlobalConstants
 
+
+
 @end

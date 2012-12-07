@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define SCALE 1.25
+
 @interface SKGlobalConstants : NSObject
 
 typedef enum {
@@ -16,5 +18,7 @@ typedef enum {
     UP,
     DOWN
 } Direction;
+
+
 
 @end
