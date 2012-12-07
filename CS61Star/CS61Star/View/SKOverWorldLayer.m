@@ -86,7 +86,7 @@
         // Set the player coordinates to the spawn point
         
         [thePlayer.python setPosition: ccp(x + 16, y + 22)];
-
+        
 
         [currentMap addChild: spriteSheet z:3];
         [self setViewpointCenter:thePlayer.python.position];

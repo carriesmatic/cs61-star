@@ -51,12 +51,40 @@
         [_expbar setScaleX: [_expbar scale] * .80];
         [_expbar setPosition:ccp(14, winSize.height - 89 - 7)];
         
-        // Add our HUD items to the layer
+        // Add our status items to the layer
         [self addChild: _statHUDshadow];
         [self addChild: _hddbar];
         [self addChild: _rambar];
         [self addChild: _expbar];
         [self addChild: _statHUD];
+        
+        
+        // Create the SHEBANG action notification
+        // Cache the sprite frames and texture
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: @"shebang_default.plist" textureFilename:@"shebang_default.png"];
+        
+        // Create a sprite batch node
+        _shebangSheet = [CCSpriteBatchNode batchNodeWithFile:@"shebang_default.png"];
+        _shebang = [CCSprite spriteWithSpriteFrameName:@"shebang 1.png"];
+        [_shebang setScale: 2];
+        [_shebang setPosition:ccp(75, 75)];
+        
+        // Gather the list of frames for each animation
+        NSMutableArray *shebangFrames = [NSMutableArray array];
+        for(int i = 1; i <= 4; ++i) {
+            [shebangFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"shebang %d.png", i]]];
+        }
+        CCAnimation *shebangAnim = [CCAnimation animationWithSpriteFrames:shebangFrames delay:0.3f];
+        CCAction *shebangAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:shebangAnim]];
+        [_shebang runAction:shebangAction];
+        
+        // Set shebang to invisible by default
+        [self setShebangVisible:NO];
+        [self addChild:_shebang];
+
+        
 
     }
     
@@ -78,5 +106,9 @@
     [_expbar setScale: 3 * perc];
 }
 
+-(void)setShebangVisible: (BOOL) val
+{
+    [_shebang setVisible:val];
+}
 
 @end
