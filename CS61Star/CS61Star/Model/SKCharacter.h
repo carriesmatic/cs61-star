@@ -20,8 +20,8 @@
     NSInteger curr_ram; // current ram
     NSInteger exp; // Player experience
     NSInteger level; // Player level
-    NSInteger max_atb; // atb max
-    NSInteger curr_atb; // current atb
+    CGFloat max_atb; // atb max
+    CGFloat curr_atb; // current atb
     CGFloat atb_rate; // rate at which atb fills up
     
     // Secondary attributes
@@ -41,8 +41,8 @@
 @property NSInteger curr_ram;
 @property NSInteger exp;
 @property NSInteger level;
-@property NSInteger max_atb;
-@property NSInteger curr_atb;
+@property CGFloat max_atb;
+@property CGFloat curr_atb;
 @property CGFloat atb_rate;
 
 

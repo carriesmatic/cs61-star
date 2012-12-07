@@ -199,7 +199,16 @@
 
 -(void)battleUpdate: (ccTime) dt
 {
-    
+   
+    if(self.curr_atb >= self.max_atb)
+    {
+        self.curr_atb = self.max_atb;
+    }
+    else
+    {
+         NSLog(@"%f",self.atb_rate);
+        self.curr_atb += self.atb_rate*dt;
+    }
 }
 
 @end
