@@ -28,5 +28,5 @@
 // Changes the current map, and returns the old map
 -(id)initWithMap:(CCTMXTiledMap*)map;
 -(void)changeMap:(CCTMXTiledMap*)newMap;
-
+-(void) update: (ccTime) dt;
 @end

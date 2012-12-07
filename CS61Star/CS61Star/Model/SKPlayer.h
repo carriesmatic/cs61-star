@@ -15,7 +15,7 @@
 @interface SKPlayer :SKCharacter
 {
     BOOL controllable;
-    
+    BOOL alive;
     CCSprite *_python;
     CCAction *_walkUpAction;
     CCAction *_walkDownAction;
@@ -23,10 +23,10 @@
     CCAction *_walkRightAction;
     CCAction *_battleAction;
     CCSpriteBatchNode *_spriteSheet;
-
 }
 
 @property BOOL controllable;
+@property BOOL alive;
 
 // Python sprite
 @property (nonatomic, retain) CCSprite *python;
@@ -42,5 +42,7 @@
 -(void) move:(CGPoint)directionOffset withDirection:(Direction)direction;
 -(CGPoint) getMovePosition: (CGPoint)directionOffset;
 -(NSInteger) attack: (SKEnemy*)enemy;
+-(void) damage: (NSInteger) dmg;
+-(void)battleUpdate: (ccTime) dt;
 
 @end

@@ -11,6 +11,7 @@
 @implementation SKPlayer
 
 @synthesize controllable;
+@synthesize alive;
 @synthesize python = _python;
 @synthesize walkUpAction = _walkUpAction;
 @synthesize walkDownAction = _walkDownAction;
@@ -182,6 +183,23 @@
     
     // Return the damage done to be displayed
     return damage;
+}
+
+-(void) damage: (NSInteger) dmg
+{
+    // Deduct health
+    self.curr_hdd -= dmg;
+    
+    if(self.curr_hdd < 0)
+    {
+        [self setAlive:NO];
+    }
+    
+}
+
+-(void)battleUpdate: (ccTime) dt
+{
+    
 }
 
 @end

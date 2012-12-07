@@ -74,6 +74,8 @@
     [super dealloc];
 }
 
-
+-(void) update: (ccTime) dt
+{
+}
 
 @end

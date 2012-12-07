@@ -21,14 +21,15 @@
 
 @interface SKControllerEngine : CCNode
 {
-    SKGameState* currState;
+
     CCDirectorMac* director;
 
     SKPlayer* _thePlayer; // The badass hacker hero of fate.
     SKMapModel* _currMap; // The current location where our hero resides.
     SKBattle* _currBattle; // The current battle, if applicable.
+    CCScene* _currScene;
 }
-
+@property (nonatomic, retain) CCScene* currScene;
 @property (nonatomic, retain) SKPlayer* thePlayer;
 @property (nonatomic, retain) SKMapModel* currMap;
 @property (nonatomic, retain) SKBattle * currBattle;
@@ -38,6 +39,5 @@
 -(void) changeToOverWorld;
 -(void) changeToBattle;
 -(void) changeToTitle;
--(SKGameState*) getCurrentState;
 +(SKControllerEngine*) getSharedEngine;
 @end
