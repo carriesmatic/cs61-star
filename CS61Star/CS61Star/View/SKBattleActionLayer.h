@@ -10,5 +10,8 @@
 #import "cocos2d.h"
 
 @interface SKBattleActionLayer : CCLayer
-
+{
+    CCSprite* _playerSprite;
+    CCSprite* _enemySprite; 
+}
 @end

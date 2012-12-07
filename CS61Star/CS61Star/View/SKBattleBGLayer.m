@@ -19,6 +19,7 @@
     if (self)
     {
         self.currentMap = [[CCTMXTiledMap alloc] initWithTMXFile:@"circuits.tmx"];
+        [self.currentMap setScale:5];
         
         [self addChild:self.currentMap];
     }
