@@ -76,6 +76,11 @@
         self.walkLeftAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkLeftAnim]];
         self.walkRightAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkRightAnim]];
         
+        // Stop antialiasing
+        [[_spriteSheet texture] setAliasTexParameters];
+        [[_python texture] setAliasTexParameters];
+        
+        
         [_python runAction:_walkDownAction];
         [_spriteSheet addChild:_python];
 
