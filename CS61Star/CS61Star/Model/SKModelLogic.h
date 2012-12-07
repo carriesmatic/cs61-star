@@ -12,11 +12,13 @@
 #import "SKPlayer.h"
 #import "SKMapModel.h"
 #import "SKCharacter.h"
+#import "SKBattle.h"
 
 @interface SKModelLogic : NSObject
 {
     SKPlayer* thePlayer; // The badass hacker hero of fate.
     SKMapModel* currMap; // The current location where our hero resides.
+    SKBattle* currBattle; // The current battle, if applicable.
     
 }
 
@@ -24,6 +26,6 @@
 -(id)initWithState: (NSDictionary*) gameState;
 
 // Generates a battle
--(id)generateBattle;
+-(SKBattle*)generateBattle;
 
 @end

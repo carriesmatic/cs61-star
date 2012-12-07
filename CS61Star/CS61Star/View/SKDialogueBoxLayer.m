@@ -26,6 +26,8 @@
         currSelected = 0;
         
     }
+    
+    return self;
 }
 
 -(id)initWithOptions: (NSMutableArray*) options
@@ -42,7 +44,6 @@
     return self;
 }
 
--()
 
 -(void)selectNext
 {

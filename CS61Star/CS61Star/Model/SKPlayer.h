@@ -10,5 +10,10 @@
 #import "SKCharacter.h"
 
 @interface SKPlayer :SKCharacter
+{
+    BOOL controllable;
+}
+
+@property BOOL controllable;
 
 @end

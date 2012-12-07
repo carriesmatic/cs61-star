@@ -31,4 +31,10 @@
     return self;
 }
 
+-(SKBattle*)generateBattle
+{
+    currBattle = [[SKBattle alloc] init];
+    
+}
+
 @end

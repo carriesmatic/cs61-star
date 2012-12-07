@@ -41,7 +41,7 @@
     // Render this scene
 }
 
--(id)changeMap:(CCTMXTiledMap *)newMap
+-(void)changeMap:(CCTMXTiledMap *)newMap
 {
     [self.layer changeMap:newMap];
 }

@@ -10,4 +10,7 @@
 
 @implementation SKPlayer
 
+@synthesize controllable;
+
+
 @end
