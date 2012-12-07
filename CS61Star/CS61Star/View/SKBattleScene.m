@@ -7,13 +7,14 @@
 //
 
 #import "SKBattleScene.h"
-
+#import "SKControllerEngine.h"
 
 @implementation SKBattleScene
 
 @synthesize bgLayer = _bgLayer;
 @synthesize actionLayer = _actionLayer;
 @synthesize hudLayer = _hudLayer;
+@synthesize enemy = _enemy;
 
 -(id) init
 {
@@ -30,7 +31,22 @@
         self.hudLayer = [[SKBattleHUDLayer alloc] init];
         [self addChild: self.hudLayer];
         
+        self.player = [[SKControllerEngine getSharedEngine] thePlayer];
+        
     }
+    return self;
+}
+
+-(id) initWithEnemy: (SKEnemy*) daEnemy
+{
+    self = [super init];
+    
+    if(self)
+    {
+        self = [self init];
+        self.enemy = daEnemy;
+    }
+    
     return self;
 }
 
@@ -42,5 +58,12 @@
     
     [super dealloc];
 }
+
+-(void) update: (ccTime) dt
+{
+    [self.player battleUpdate: dt];
+    [self.enemy battleUpdate: dt];
+}
+
 
 @end

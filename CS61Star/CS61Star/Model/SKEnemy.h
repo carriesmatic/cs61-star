@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
+@class SKPlayer;
 
 @interface SKEnemy : NSObject
 {
@@ -19,6 +21,7 @@
 @property NSInteger currEff;
 @property BOOL alive;
 
+-(NSInteger)attack: (SKPlayer*) player;
 -(void)damage: (NSInteger) dmg;
-
+-(void)battleUpdate: (ccTime) dt;
 @end

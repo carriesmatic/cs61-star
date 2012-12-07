@@ -7,9 +7,9 @@
 //
 
 #import "SKControllerEngine.h"
-#import "SKOverWorldState.h"
-#import "SKBattleState.h"
-#import "SKTitleScreenState.h"
+#import "SKOverWorldScene.h"
+#import "SKBattleScene.h"
+#import "SKTitleScreenScene.h"
 #import "SimpleAudioEngine.h"
 @implementation SKControllerEngine
 
@@ -33,7 +33,7 @@ SKControllerEngine* shared;
         // Make the engine globally accessible (if there's already one, don't make another
         
         [self scheduleUpdate];  // available since v0.99.3
-        
+        [self onEnter];
         // Get the director
         director = (CCDirectorMac*) [CCDirector sharedDirector];
         
@@ -53,7 +53,6 @@ SKControllerEngine* shared;
         
         // Set this as the shared object
         shared = self;
-        
         // For now, run startNewGame automatically in the beginning
         [self startNewGame];
     }
@@ -61,24 +60,30 @@ SKControllerEngine* shared;
     return self;
 }
 
+-(void) onEnter
+{
+    [super onEnter];
+}
+
 -(void) update: (ccTime) dt
 {
-    [currState update: dt];
+    [self.currScene update: dt];
+
 }
 
 
 -(void) changeToOverWorld
 {
-    [currState autorelease];
-    currState = [[SKOverWorldState alloc] init];
-    [director runWithScene: [currState getCurrentScene]];
+    [self.currScene autorelease];
+    self.currScene = [[SKOverWorldScene alloc] init];
+    [director runWithScene: self.currScene];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"dungeon.caf"];
 }
 
 -(void) changeToBattle
 {
-    currState = [[SKBattleState alloc] init];
-    [director pushScene: [CCTransitionPageTurn transitionWithDuration:0.5f scene:[currState getCurrentScene] backwards:NO]];
+    self.currScene = [[SKBattleScene alloc] init];
+    [director pushScene: [CCTransitionPageTurn transitionWithDuration:0.5f scene:self.currScene backwards:NO]];
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"battle.caf"];
     
@@ -86,15 +91,15 @@ SKControllerEngine* shared;
 
 -(void) changeToTitle
 {
-    [currState autorelease];
-    currState = [[SKTitleScreenState alloc] init];
-    [director runWithScene: [currState getCurrentScene]];
+    [self.currScene autorelease];
+    self.currScene = [[SKTitleScreenScene alloc] init];
+    [director runWithScene: self.currScene];
 }
 
 -(void) startNewGame
 {
     // Starts a new game!
-    currState = [[SKOverWorldState alloc] init];
+    self.currScene = [[SKOverWorldScene alloc] init];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"dungeon.caf"];
     
 }
@@ -134,10 +139,6 @@ SKControllerEngine* shared;
     return YES;
 }
 
--(SKGameState*) getCurrentState
-{
-    return currState;
-}
 
 +(SKControllerEngine*) getSharedEngine
 {

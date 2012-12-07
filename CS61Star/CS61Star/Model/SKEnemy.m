@@ -14,6 +14,18 @@
 @synthesize currEff = _currEff;
 @synthesize alive = _alive;
 
+-(NSInteger) attack:(SKPlayer *)player
+{
+    // Calculate damage
+    NSInteger damage = 10;
+    
+    // Damage player
+    [player damage: 10];
+    
+    // Return damage to be displayed
+    return damage;
+}
+
 -(void) damage:(NSInteger)dmg
 {
     self.currEff += dmg;
@@ -22,5 +34,11 @@
         [self setAlive:NO];
     }
 }
+
+-(void)battleUpdate: (ccTime) dt
+{
+    
+}
+
 
 @end

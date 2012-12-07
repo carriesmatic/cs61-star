@@ -10,6 +10,17 @@
 
 @implementation SKCharacter
 
+@synthesize max_hdd;
+@synthesize max_ram;
+@synthesize curr_hdd;
+@synthesize curr_ram;
+@synthesize exp;
+@synthesize level;
+@synthesize max_atb;
+@synthesize curr_atb;
+@synthesize atb_rate;
+
+
 // The exp required to reach a level (levels start at 0, duh)
 NSInteger const expLevels[] = {0, 1000, 2000};
 
@@ -29,7 +40,9 @@ NSInteger const levelCap = 99;
         curr_ram = curr_ram;
         exp = 0;
         level = 0;
-        
+        max_atb = 100;
+        curr_atb = 0;
+        atb_rate = .5;
         proc_speed = 50;
         runtime_speed = 50;
     }
