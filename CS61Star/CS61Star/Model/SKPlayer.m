@@ -170,4 +170,16 @@
     [super dealloc];
 }
 
+-(NSInteger) attack: (SKEnemy*) enemy
+{
+    // Calculate the damage to the enemy
+    NSInteger damage = 10;
+    
+    // Damage the enemy
+    [enemy damage: damage];
+    
+    // Return the damage done to be displayed
+    return damage;
+}
+
 @end

@@ -10,6 +10,7 @@
 #import "SKCharacter.h"
 #import "cocos2d.h"
 #import "SKGlobalConstants.h"
+#import "SKEnemy.h"
 
 @interface SKPlayer :SKCharacter
 {
@@ -40,6 +41,6 @@
 -(void) changeDirection:(Direction)direction;
 -(void) move:(CGPoint)directionOffset withDirection:(Direction)direction;
 -(CGPoint) getMovePosition: (CGPoint)directionOffset;
-
+-(NSInteger) attack: (SKEnemy*)enemy;
 
 @end
