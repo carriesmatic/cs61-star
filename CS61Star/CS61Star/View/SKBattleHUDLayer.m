@@ -12,6 +12,9 @@
 @implementation SKBattleHUDLayer
 
 @synthesize attackLabel = _attackLabel;
+@synthesize itemsLabel = _itemsLabel;
+@synthesize runLabel = _runLabel;
+@synthesize menuLabel = _menuLabel;
 @synthesize playerDamage = _playerDamage;
 @synthesize enemyDamage = _enemyDamage;
 
@@ -64,7 +67,24 @@
         
         self.attackLabel = [CCLabelTTF labelWithString:@"ATTACK" fontName:@"8BITWONDERNominal" fontSize:24];
         [self.attackLabel setPosition:ccp(110,165)];
+        [self.attackLabel setColor:ccBLACK];
         [self addChild:self.attackLabel];
+        
+        self.itemsLabel = [CCLabelTTF labelWithString:@"ITEMS" fontName:@"8BITWONDERNominal" fontSize:24];
+        [self.itemsLabel setPosition:ccp(110,120)];
+        [self.itemsLabel setColor:ccBLACK];
+        [self addChild:self.itemsLabel];
+        
+        self.runLabel = [CCLabelTTF labelWithString:@"RUN" fontName:@"8BITWONDERNominal" fontSize:24];
+        [self.runLabel setPosition:ccp(110,80)];
+        [self.runLabel setColor:ccBLACK];
+        [self addChild:self.runLabel];
+        
+        self.menuLabel = [CCLabelTTF labelWithString:@"MENU" fontName:@"8BITWONDERNominal" fontSize:24];
+        [self.menuLabel setPosition:ccp(110,35)];
+        [self.menuLabel setColor:ccBLACK];
+        [self addChild:self.menuLabel];
+        
         
         self.playerDamage = [CCLabelTTF labelWithString:@"9001" fontName:@"8BITWONDERNominal" fontSize:24];
         [self.playerDamage setString:@"9001"];

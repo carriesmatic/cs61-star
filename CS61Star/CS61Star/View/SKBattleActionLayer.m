@@ -96,7 +96,6 @@
         if ( [someKey length] == 1 ) {
             keyChar = [someKey characterAtIndex:0];
             
-            NSLog(@"%@", keyChar);
             if ( keyChar == (char)@"z" ) {
                 NSLog(@"Hello");
                 return YES;

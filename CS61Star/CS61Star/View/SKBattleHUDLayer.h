@@ -23,6 +23,9 @@
 }
 
 @property (nonatomic, retain) CCLabelTTF* attackLabel;
+@property (nonatomic, retain) CCLabelTTF* itemsLabel;
+@property (nonatomic, retain) CCLabelTTF* runLabel;
+@property (nonatomic, retain) CCLabelTTF* menuLabel;
 @property (nonatomic, retain) CCLabelTTF* playerDamage;
 @property (nonatomic, retain) CCLabelTTF* enemyDamage;
 
