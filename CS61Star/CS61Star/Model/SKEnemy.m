@@ -29,6 +29,7 @@
         self.currEff = 0;
         self.max_atb = 1;
         self.curr_atb = 0;
+        self.atb_rate = 0.5;
         self.alive = YES;
         self.atbReady = NO;
     }
@@ -63,11 +64,10 @@
 
 -(void)battleUpdate: (ccTime) dt
 {
-    if(self.curr_atb > self.max_atb)
+    if(self.curr_atb >= self.max_atb)
     {
-        self.curr_atb = self.max_atb;
         self.atbReady = YES;
-        
+        self.curr_atb = self.max_atb;
     }
     else
     {

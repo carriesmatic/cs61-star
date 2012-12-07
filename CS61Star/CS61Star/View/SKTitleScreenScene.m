@@ -67,4 +67,9 @@
     NSLog(@"on settings");
 }
 
+-(void)update: (ccTime) dt
+{
+    
+}
+
 @end

@@ -41,6 +41,7 @@
 -(CCSpriteBatchNode*) getSpriteSheet;
 -(void) move:(CGPoint)directionOffset withDirection:(Direction)direction;
 -(CGPoint) getMovePosition: (CGPoint)directionOffset;
+-(CGPoint) getPosition;
 -(NSInteger) attack: (SKEnemy*)enemy;
 -(void) damage: (NSInteger) dmg;
 -(void)battleUpdate: (ccTime) dt;

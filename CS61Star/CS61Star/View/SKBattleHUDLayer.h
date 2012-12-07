@@ -8,15 +8,23 @@
 
 #import "CCLayer.h"
 #import "cocos2d.h"
-
+#import "SKPlayer.h"
 @interface SKBattleHUDLayer : CCLayer
 {
     CCSprite* _statBar;
     CCSprite* _statBackground;
     CCSprite* _atbBar;
     
-    CCLabelAtlas* _attackLabel;
+    CCLabelTTF* _attackLabel;
+    CCLabelTTF* _playerDamage;
+    CCLabelTTF* _enemyDamage;
+    
+    SKPlayer* player;
 }
+
+@property (nonatomic, retain) CCLabelTTF* attackLabel;
+@property (nonatomic, retain) CCLabelTTF* playerDamage;
+@property (nonatomic, retain) CCLabelTTF* enemyDamage;
 
 -(void) update: (ccTime) dt;
 

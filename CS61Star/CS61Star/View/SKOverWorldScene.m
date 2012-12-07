@@ -26,8 +26,8 @@
         self.mapLayer = [[SKOverWorldLayer alloc] init];
         [self addChild: self.mapLayer];
         
-        self.dialogueLayer = [[SKDialogueBoxLayer alloc] init];
-        [self addChild: self.dialogueLayer];
+//        self.dialogueLayer = [[SKDialogueBoxLayer alloc] init];
+//        [self addChild: self.dialogueLayer];
         
         self.hudLayer = [[SKOverworldHUDLayer alloc] init];
         [self addChild: self.hudLayer];
@@ -45,8 +45,8 @@
         self.mapLayer = [[SKOverWorldLayer alloc] initWithMap: map];
         [self addChild: self.mapLayer];
         
-        self.dialogueLayer = [[SKDialogueBoxLayer alloc] init];
-        [self addChild: self.dialogueLayer];
+//        self.dialogueLayer = [[SKDialogueBoxLayer alloc] init];
+//        [self addChild: self.dialogueLayer];
         
         self.hudLayer = [[SKOverworldHUDLayer alloc] init];
         [self addChild: self.hudLayer];
@@ -68,7 +68,7 @@
 -(void)dealloc
 {
     [self.mapLayer release];
-    [self.dialogueLayer release];
+//    [self.dialogueLayer release];
     [self.hudLayer release];
     
     [super dealloc];
