@@ -53,6 +53,7 @@ SKControllerEngine* shared;
         
         // Set this as the shared object
         shared = self;
+        
         // For now, run startNewGame automatically in the beginning
         [self startNewGame];
     }

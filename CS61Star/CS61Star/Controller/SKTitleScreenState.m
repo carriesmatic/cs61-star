@@ -7,7 +7,23 @@
 //
 
 #import "SKTitleScreenState.h"
+#import "SKTitleScreenScene.h"
 
 @implementation SKTitleScreenState
+-(id)init
+{
+    
+    self = [super init];
+    if(self)
+    {
+        currScene = [[SKTitleScreenScene alloc] init];
+    }
+    
+    return self;
+}
 
+-(void)update
+{
+    
+}
 @end

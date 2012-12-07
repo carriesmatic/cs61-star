@@ -25,14 +25,13 @@
     
     NSMutableArray* npcList;
     NSMutableArray* hudElements;
-    SKPlayer* thePlayer;
+    SKPlayer* _thePlayer;
 }
 
 @property (retain, nonatomic) CCTMXTiledMap* currentMap;
 @property (retain, nonatomic) NSMutableArray* npcList;
 @property (retain, nonatomic) NSMutableArray* hudElements;
 @property (retain, nonatomic) SKPlayer* thePlayer;
-//@property (retain, nonatomic) 
 
 @property (retain, nonatomic) CCTMXLayer* meta;
 @property (retain, nonatomic) CCTMXLayer* curtain;

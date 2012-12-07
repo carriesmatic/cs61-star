@@ -30,7 +30,7 @@
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: @"zwoppythonsheet_default.plist" textureFilename:@"zwoppythonsheet_default.png"];
         
         // Create a sprite batch node
-        _spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"zwoppythonsheet_default.png"];
+        _spriteSheet = [[CCSpriteBatchNode batchNodeWithFile:@"zwoppythonsheet_default.png"] retain];
         
         // Gather the list of frames for each animation
         NSMutableArray *walkDownAnimFrames = [NSMutableArray array];
@@ -100,9 +100,9 @@
     return self;
 }
 
--(CCSpriteBatchNode*)getSpriteSheet
+-(CCSpriteBatchNode*) getSpriteSheet
 {
-    return _spriteSheet;
+    return self.spriteSheet;
 }
 
 -(void)changeDirection: (Direction)direction
@@ -151,12 +151,14 @@
 
 -(void) dealloc
 {
+    [self.spriteSheet release];
     [self.python release];
     [self.walkUpAction release];
     [self.walkDownAction release];
     [self.walkRightAction release];
     [self.walkLeftAction release];
     
+    self.spriteSheet = nil;
     self.python = nil;
     self.walkUpAction = nil;
     self.walkDownAction = nil;

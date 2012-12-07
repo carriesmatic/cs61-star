@@ -22,7 +22,7 @@
 @synthesize under2 = _under2;
 @synthesize under = _under;
 @synthesize meta = _meta;
-@synthesize thePlayer;
+@synthesize thePlayer = _thePlayer;
 
 
 -(id)init
@@ -44,8 +44,6 @@
     self = [super init];
     if(self)
     {
-        
-        
         // Enable keyboard
         self.isKeyboardEnabled = YES;
 
@@ -81,16 +79,14 @@
         SKControllerEngine* gameEngine = [SKControllerEngine getSharedEngine];
         
         // Get the player so I can request the sprite sheet and add it to the view
-        thePlayer = [gameEngine thePlayer];
-        CCSpriteBatchNode* spriteSheet = [thePlayer getSpriteSheet];
+        self.thePlayer = [gameEngine thePlayer];
+        CCSpriteBatchNode* spriteSheet = [self.thePlayer getSpriteSheet];
         
         // Set the player coordinates to the spawn point
-        
-        [thePlayer.python setPosition: ccp(x + 16, y + 22)];
-        
+        [self.thePlayer.python setPosition: ccp(x + 16, y + 22)];
 
         [currentMap addChild: spriteSheet z:3];
-        [self setViewpointCenter:thePlayer.python.position];
+        [self setViewpointCenter:self.thePlayer.python.position];
         
         
     }
@@ -113,8 +109,8 @@
                 CGPoint movePosition = ccp(-32,0);
                 if(![self isCollision:movePosition])
                 {
-                    [thePlayer move:movePosition withDirection:LEFT];
-                    [self setViewpointCenter:thePlayer.python.position];
+                    [_thePlayer move:movePosition withDirection:LEFT];
+                    [self setViewpointCenter:_thePlayer.python.position];
                     
                     // Start the battle scene if we hit a monster
                     if (arc4random() % 251 < 5)
@@ -129,8 +125,8 @@
                 CGPoint movePosition = ccp(32,0);
                 if(![self isCollision:movePosition])
                 {
-                    [thePlayer move:movePosition withDirection:RIGHT];
-                    [self setViewpointCenter:thePlayer.python.position];
+                    [_thePlayer move:movePosition withDirection:RIGHT];
+                    [self setViewpointCenter:_thePlayer.python.position];
                 
                     // Start the battle scene if we hit a monster
                     if (arc4random() % 251 < 5)
@@ -144,8 +140,8 @@
                 CGPoint movePosition = ccp(0,32);
                 if(![self isCollision:movePosition])
                 {
-                    [thePlayer move:movePosition withDirection:UP];
-                    [self setViewpointCenter:thePlayer.python.position];
+                    [_thePlayer move:movePosition withDirection:UP];
+                    [self setViewpointCenter:_thePlayer.python.position];
                 
                     // Start the battle scene if we hit a monster
                     if (arc4random() % 251 < 5)
@@ -159,8 +155,8 @@
                 CGPoint movePosition = ccp(0,-32);
                 if(![self isCollision:movePosition])
                 {
-                    [thePlayer move:movePosition withDirection:DOWN];
-                    [self setViewpointCenter:thePlayer.python.position];
+                    [_thePlayer move:movePosition withDirection:DOWN];
+                    [self setViewpointCenter:_thePlayer.python.position];
                 
                     // Start the battle scene if we hit a monster
                     if (arc4random() % 215 < 2)
@@ -202,7 +198,7 @@
 -(BOOL)isCollision: (CGPoint) position
 {
     
-    CGPoint tileCoord = [self tileCoordForPosition:[thePlayer getMovePosition:position]];
+    CGPoint tileCoord = [self tileCoordForPosition:[_thePlayer getMovePosition:position]];
     int tileGid = [_meta tileGIDAt:tileCoord];
     if (tileGid) {
         NSDictionary *properties = [currentMap propertiesForGID:tileGid];

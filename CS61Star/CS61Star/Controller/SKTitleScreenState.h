@@ -11,4 +11,6 @@
 
 @interface SKTitleScreenState : SKGameState
 
+-(void)update;
+
 @end

@@ -37,8 +37,8 @@
 @property (nonatomic, retain) CCAction *battleAction;
 @property (nonatomic, retain) CCSpriteBatchNode *spriteSheet;
 
--(CCSpriteBatchNode*) getSpriteSheet;
 -(void) changeDirection:(Direction)direction;
+-(CCSpriteBatchNode*) getSpriteSheet;
 -(void) move:(CGPoint)directionOffset withDirection:(Direction)direction;
 -(CGPoint) getMovePosition: (CGPoint)directionOffset;
 -(NSInteger) attack: (SKEnemy*)enemy;
