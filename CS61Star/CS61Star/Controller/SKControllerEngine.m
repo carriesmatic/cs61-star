@@ -12,21 +12,32 @@
 #import "SKTitleScreenState.h"
 @implementation SKControllerEngine
 
+@synthesize thePlayer = _thePlayer;
+@synthesize currMap = _currMap;
+@synthesize currBattle = _currBattle;
+
+
 SKControllerEngine* shared;
 
 -(id)init
 {
+    if(shared)
+    {
+        return shared;
+    }
+    
     self = [super init];
     if(self)
     {
+        // Make the engine globally accessible (if there's already one, don't make another
         
         [self scheduleUpdate];  // available since v0.99.3
         
         // Get the director
         director = (CCDirectorMac*) [CCDirector sharedDirector];
         
-        // For now, automatically load SKOverWorldState
-        currState = [[SKOverWorldState alloc] init];
+        // For now, run startNewGame automatically in the beginning
+        [self startNewGame];
         
         // Since the map is probably the most intensive 'scene', probably would be a good idea
         // to keep the overworld loaded until the game is quit
@@ -35,13 +46,14 @@ SKControllerEngine* shared;
         // since we have not necessarily started the game yet. We will leave this to when a new game
         // or a loaded game is started
         
-        // Make the engine globally accessable
+        // Initializes some game data
+        _thePlayer = [[SKPlayer alloc] init];
+        _currMap = NULL;
+        _currBattle = NULL;
         
-        if(!shared)
-        {
-            shared = self; //(Just in case)
-        }
-        
+        // Set this as the shared object
+        shared = self;
+                
     }
     
     return self;
@@ -77,6 +89,7 @@ SKControllerEngine* shared;
 -(void) startNewGame
 {
     // Starts a new game!
+    currState = [[SKOverWorldState alloc] init];
 }
 
 -(BOOL) loadGameState
@@ -115,9 +128,9 @@ SKControllerEngine* shared;
     
 }
 
--(CCScene*) getCurrentScene
+-(SKGameState*) getCurrentState
 {
-    return [currState getCurrentScene];
+    return currState;
 }
 
 +(SKControllerEngine*) getSharedEngine
