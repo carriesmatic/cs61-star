@@ -35,21 +35,28 @@
         [_hddbar setAnchorPoint:ccp(0, 0)];
         [_hddbar setScale: 3];
         [_hddbar setScaleX: [_hddbar scale] * .90];
-        [_hddbar setPosition:ccp(14, winSize.height - 35 - 9)];
+        [_hddbar setPosition:ccp(13, winSize.height - 35 - 8)];
         
         
         _rambar = [CCSprite spriteWithFile:@"rambar.png"];
         [_rambar setAnchorPoint:ccp(0, 0)];
         [_rambar setScale: 3];
         [_rambar setScaleX: [_rambar scale] * .20];
-        [_rambar setPosition:ccp(14, winSize.height - 62 - 8)];
+        [_rambar setPosition:ccp(13, winSize.height - 62 - 7)];
         
         
         _expbar = [CCSprite spriteWithFile:@"expbar.png"];
         [_expbar setAnchorPoint:ccp(0, 0)];
         [_expbar setScale: 3];
         [_expbar setScaleX: [_expbar scale] * .80];
-        [_expbar setPosition:ccp(14, winSize.height - 89 - 7)];
+        [_expbar setPosition:ccp(13, winSize.height - 89 - 6)];
+        
+        // Stop antialiasing
+        [[_statHUD texture] setAliasTexParameters];
+        [[_statHUDshadow texture] setAliasTexParameters];
+        [[_hddbar texture] setAliasTexParameters];
+        [[_rambar texture] setAliasTexParameters];
+        [[_expbar texture] setAliasTexParameters];
         
         // Add our status items to the layer
         [self addChild: _statHUDshadow];
@@ -82,6 +89,11 @@
         
         // Set shebang to invisible by default
         [self setShebangVisible:NO];
+
+        // Turn off antialiasing
+        [[_shebangSheet texture] setAliasTexParameters];
+        [[_shebang texture] setAliasTexParameters];
+        
         [self addChild:_shebang];
 
         
