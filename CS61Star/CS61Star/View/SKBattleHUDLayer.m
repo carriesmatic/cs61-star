@@ -17,7 +17,9 @@
 @synthesize menuLabel = _menuLabel;
 @synthesize playerDamage = _playerDamage;
 @synthesize enemyDamage = _enemyDamage;
-
+@synthesize displayPlayerDamage = _displayPlayerDamage;
+@synthesize displayEnemyDamage = _displayEnemyDamage;
+@synthesize playerDamageDisplayLeft = _playerDamageDisplayLeft;
 -(id) init
 {
     self = [super init];
@@ -85,10 +87,8 @@
         [self.menuLabel setColor:ccBLACK];
         [self addChild:self.menuLabel];
         
-        
-        self.playerDamage = [CCLabelTTF labelWithString:@"9001" fontName:@"8BITWONDERNominal" fontSize:24];
-        [self.playerDamage setString:@"9001"];
-        [self.playerDamage setVisible:YES];
+        self.playerDamage = [CCLabelTTF labelWithString:@"" fontName:@"8BITWONDERNominal" fontSize:24];
+        [self.playerDamage setVisible:NO];
         [self.playerDamage setPosition:ccp(775, 600)];
         
         [self addChild:self.playerDamage];
@@ -100,5 +100,14 @@
 -(void) update: (ccTime) dt
 {
     [_atbBar setScaleX: 7 * [player curr_atb]];
+    
+    // Player damage
+    [self.playerDamage setVisible: self.displayPlayerDamage];
+    if (self.displayPlayerDamage && self.playerDamageDisplayLeft < 0) {
+        self.displayPlayerDamage = NO;
+    }
+    else if(self.displayPlayerDamage){
+        self.playerDamageDisplayLeft--;
+    }
 }
 @end

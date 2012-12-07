@@ -64,7 +64,10 @@
     [self.player battleUpdate: dt];
     [self.enemy battleUpdate: dt];
     if(self.enemy.atbReady){
-        [self.enemy attack:self.player];
+        
+        [self.hudLayer setDisplayPlayerDamage: YES];
+        [self.hudLayer setPlayerDamageDisplayLeft:40];
+        [[self.hudLayer playerDamage] setString:[NSString stringWithFormat:@"%ld", [self.enemy attack:self.player], nil]];
     }
     [self.hudLayer update: dt];
 }

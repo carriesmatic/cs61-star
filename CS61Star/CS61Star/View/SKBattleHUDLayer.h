@@ -17,9 +17,13 @@
     
     CCLabelTTF* _attackLabel;
     CCLabelTTF* _playerDamage;
+    BOOL _displayPlayerDamage;
     CCLabelTTF* _enemyDamage;
+    BOOL _displayEnemyDamage;
     
     SKPlayer* player;
+    
+    NSInteger _playerDamageDisplayLeft;
 }
 
 @property (nonatomic, retain) CCLabelTTF* attackLabel;
@@ -28,6 +32,9 @@
 @property (nonatomic, retain) CCLabelTTF* menuLabel;
 @property (nonatomic, retain) CCLabelTTF* playerDamage;
 @property (nonatomic, retain) CCLabelTTF* enemyDamage;
+@property BOOL displayPlayerDamage;
+@property BOOL displayEnemyDamage;
+@property NSInteger playerDamageDisplayLeft;
 
 -(void) update: (ccTime) dt;
 
