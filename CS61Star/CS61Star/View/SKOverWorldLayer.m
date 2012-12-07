@@ -22,9 +22,6 @@
     {
         currentMap = [[CCTMXTiledMap alloc] initWithTMXFile:@"testmap.tmx"];
         [self initWithMap:currentMap];
-        
-        // Get the data from the game engine
-        SKControllerEngine* gameEngine = [SKControllerEngine getSharedEngine];
     }
     
     return self;
@@ -38,18 +35,20 @@
     {
         // Enable keyboard
         self.isKeyboardEnabled = YES;
+
+        // The current map
+        currentMap = [map retain];
+        [self addChild:currentMap];
         
         // Get the data from the game engine
         SKControllerEngine* gameEngine = [SKControllerEngine getSharedEngine];
         
         // Get the player so I can request the sprite sheet and add it to the view
-//        [data ]
+        thePlayer = [gameEngine thePlayer];
+        CCSpriteBatchNode* spriteSheet = [thePlayer getSpriteSheet];
+
+        [self addChild: spriteSheet];
         
-        
-//        [self addChild: spriteSheet]
-        
-        currentMap = [map retain];
-        [self addChild:currentMap];
         
     }
     return self;
@@ -69,28 +68,28 @@
             if ( keyChar == NSLeftArrowFunctionKey ) {
                 CCLOG(@"Left Arrow pressed");
                 CGPoint movePosition = ccp(-32,0);
-                [self movePlayer:movePosition withDirection:LEFT];
+                [thePlayer move:movePosition withDirection:LEFT];
 
                 return YES;
             }
             if ( keyChar == NSRightArrowFunctionKey ) {
                 CCLOG(@"Right Arrow pressed");
                 CGPoint movePosition = ccp(32,0);
-                [self movePlayer:movePosition withDirection:RIGHT];
+                [thePlayer move:movePosition withDirection:RIGHT];
 
                 return YES;
             }
             if ( keyChar == NSUpArrowFunctionKey ) {
                 CCLOG(@"Up Arrow Pressed");
                 CGPoint movePosition = ccp(0,32);
-                [self movePlayer:movePosition withDirection:UP];
+                [thePlayer move:movePosition withDirection:UP];
                 return YES;
             }
             if ( keyChar == NSDownArrowFunctionKey ) {
                 CCLOG(@"Down Arrow Pressed");
 
                 CGPoint movePosition = ccp(0,-32);
-                [self movePlayer:movePosition withDirection:DOWN];
+                [thePlayer move:movePosition withDirection:DOWN];
                 return YES;
             }
         }

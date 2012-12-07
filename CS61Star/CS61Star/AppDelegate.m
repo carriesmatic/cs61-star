@@ -31,7 +31,7 @@
 	[window_ center];
     SKControllerEngine* controller = [[SKControllerEngine alloc] init];
 
-	[director runWithScene:[controller getCurrentScene]];
+	[director runWithScene:[[controller getCurrentState] getCurrentScene]];
 }
 
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed: (NSApplication *) theApplication

@@ -36,8 +36,7 @@ SKControllerEngine* shared;
         // Get the director
         director = (CCDirectorMac*) [CCDirector sharedDirector];
         
-        // For now, run startNewGame automatically in the beginning
-        [self startNewGame];
+
         
         // Since the map is probably the most intensive 'scene', probably would be a good idea
         // to keep the overworld loaded until the game is quit
@@ -53,7 +52,9 @@ SKControllerEngine* shared;
         
         // Set this as the shared object
         shared = self;
-                
+        
+        // For now, run startNewGame automatically in the beginning
+        [self startNewGame];
     }
     
     return self;

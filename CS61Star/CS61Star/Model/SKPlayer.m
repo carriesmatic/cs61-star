@@ -111,7 +111,7 @@
     }
 }
 
--(void)movePlayer:(CGPoint)directionOffset withDirection:(Direction)direction
+-(void)move:(CGPoint)directionOffset withDirection:(Direction)direction
 {
     CGSize size = [[CCDirector sharedDirector] winSize];
     CGPoint pythonPosition = [_python position];
