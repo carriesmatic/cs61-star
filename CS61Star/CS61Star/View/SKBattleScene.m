@@ -62,7 +62,12 @@
 -(void) update: (ccTime) dt
 {
     [self.player battleUpdate: dt];
+    
     [self.enemy battleUpdate: dt];
+    if(self.enemy.atbReady){
+        [self.enemy attack:self.player];
+    }
+    [self.hudLayer update: dt];
 }
 
 

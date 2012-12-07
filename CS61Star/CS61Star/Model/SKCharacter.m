@@ -28,6 +28,28 @@ NSInteger const expLevels[] = {0, 1000, 2000};
 // finite amount of exp requirements for levels
 NSInteger const levelCap = 99;
 
+-(id) init
+{
+    self = [super init];
+    if(self)
+    {
+        // Initialize player attributes
+        max_hdd = 100;
+        curr_hdd = max_hdd;
+        max_ram = 100;
+        curr_ram = curr_ram;
+        exp = 0;
+        level = 0;
+        max_atb = 1;
+        curr_atb = 0;
+        atb_rate = .5;
+        proc_speed = 50;
+        runtime_speed = 50;
+    }
+    
+    return self;
+}
+
 -(id) initWithName: (NSString*) tehname
 {
     self = [super initWithName: tehname];
@@ -40,7 +62,7 @@ NSInteger const levelCap = 99;
         curr_ram = curr_ram;
         exp = 0;
         level = 0;
-        max_atb = 100;
+        max_atb = 1;
         curr_atb = 0;
         atb_rate = .5;
         proc_speed = 50;
@@ -66,6 +88,20 @@ NSInteger const levelCap = 99;
         
         proc_speed = (NSInteger) [attrs valueForKey: @"proc_speed"];
         runtime_speed = (NSInteger) [attrs valueForKey: @"runtime_speed"];
+        
+        // FOR NOW
+        // Initialize player attributes
+        max_hdd = 100;
+        curr_hdd = max_hdd;
+        max_ram = 100;
+        curr_ram = curr_ram;
+        exp = 0;
+        level = 0;
+        max_atb = 1;
+        curr_atb = 0;
+        atb_rate = .5;
+        proc_speed = 50;
+        runtime_speed = 50;
     }
     return self;
 }

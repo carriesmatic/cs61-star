@@ -12,6 +12,12 @@
 @interface SKBattleHUDLayer : CCLayer
 {
     CCSprite* _statBar;
+    CCSprite* _statBackground;
+    CCSprite* _atbBar;
+    
+    CCLabelAtlas* _attackLabel;
 }
+
+-(void) update: (ccTime) dt;
 
 @end
