@@ -91,21 +91,18 @@
 
 -(void)changeDirection: (Direction)direction
 {
+    [_python stopAllActions];
     switch (direction) {
         case LEFT:
-            [_python stopAllActions];
             [_python runAction:_walkLeftAction];
             break;
         case RIGHT:
-            [_python stopAllActions];
             [_python runAction:_walkRightAction];
             break;
         case UP:
-            [_python stopAllActions];
             [_python runAction:_walkUpAction];
             break;
         default:
-            [_python stopAllActions];
             [_python runAction:_walkDownAction];
             break;
     }
