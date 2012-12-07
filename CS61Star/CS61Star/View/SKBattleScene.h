@@ -19,6 +19,7 @@
     SKBattleHUDLayer* _hudLayer;
     SKPlayer* _player;
     SKEnemy* _enemy;
+    
 }
 
 @property (retain, nonatomic) SKBattleBGLayer* bgLayer;
