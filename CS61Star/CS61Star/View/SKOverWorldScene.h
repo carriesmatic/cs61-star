@@ -12,13 +12,19 @@
 #import "SKOverWorldLayer.h"
 
 @interface SKOverWorldScene : CCScene {
-    CCTMXTiledMap* currentMap;
     NSMutableArray* npcList;
     NSMutableArray* hudElements;
     SKOverworldHUDLayer* hud;
+    
+    // Map things
+    CCTMXTiledMap* _tileMap;
+    CCTMXLayer* _background;
+    CCTMXLayer* _meta;
 }
 
 @property (retain, nonatomic) SKOverWorldLayer* layer;
+@property (retain, nonatomic) CCTMXLayer* meta;
+
 
 // Changes the current map, and returns the old map
 -(id)initWithMap:(CCTMXTiledMap*)map;
