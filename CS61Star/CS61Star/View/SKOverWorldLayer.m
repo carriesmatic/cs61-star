@@ -111,54 +111,63 @@
             
             if ( keyChar == NSLeftArrowFunctionKey ) {
                 CGPoint movePosition = ccp(-32,0);
-                [thePlayer move:movePosition withDirection:LEFT];
-                [self setViewpointCenter:thePlayer.python.position];
-                
-                // Start the battle scene if we hit a monster
-                if (arc4random() % 251 < 5)
+                if(![self isCollision:movePosition])
                 {
-                    [[SKControllerEngine getSharedEngine] changeToBattle];
+                    [thePlayer move:movePosition withDirection:LEFT];
+                    [self setViewpointCenter:thePlayer.python.position];
+                    
+                    // Start the battle scene if we hit a monster
+                    if (arc4random() % 251 < 5)
+                    {
+                        [[SKControllerEngine getSharedEngine] changeToBattle];
+                    }
                 }
                 
                 return YES;
             }
             if ( keyChar == NSRightArrowFunctionKey ) {
                 CGPoint movePosition = ccp(32,0);
-                [thePlayer move:movePosition withDirection:RIGHT];
-                [self setViewpointCenter:thePlayer.python.position];
-                
-                // Start the battle scene if we hit a monster
-                if (arc4random() % 251 < 5)
+                if(![self isCollision:movePosition])
                 {
-                    [[SKControllerEngine getSharedEngine] changeToBattle];
-                }
+                    [thePlayer move:movePosition withDirection:RIGHT];
+                    [self setViewpointCenter:thePlayer.python.position];
                 
+                    // Start the battle scene if we hit a monster
+                    if (arc4random() % 251 < 5)
+                    {
+                        [[SKControllerEngine getSharedEngine] changeToBattle];
+                    }
+                }
                 return YES;
             }
             if ( keyChar == NSUpArrowFunctionKey ) {
                 CGPoint movePosition = ccp(0,32);
-                [thePlayer move:movePosition withDirection:UP];
-                [self setViewpointCenter:thePlayer.python.position];
-                
-                // Start the battle scene if we hit a monster
-                if (arc4random() % 251 < 5)
+                if(![self isCollision:movePosition])
                 {
-                    [[SKControllerEngine getSharedEngine] changeToBattle];
-                }
+                    [thePlayer move:movePosition withDirection:UP];
+                    [self setViewpointCenter:thePlayer.python.position];
                 
+                    // Start the battle scene if we hit a monster
+                    if (arc4random() % 251 < 5)
+                    {
+                        [[SKControllerEngine getSharedEngine] changeToBattle];
+                    }
+                }
                 return YES;
             }
             if ( keyChar == NSDownArrowFunctionKey ) {
                 CGPoint movePosition = ccp(0,-32);
-                [thePlayer move:movePosition withDirection:DOWN];
-                [self setViewpointCenter:thePlayer.python.position];
-                
-                // Start the battle scene if we hit a monster
-                if (arc4random() % 215 < 2)
+                if(![self isCollision:movePosition])
                 {
-                    [[SKControllerEngine getSharedEngine] changeToBattle];
-                }
+                    [thePlayer move:movePosition withDirection:DOWN];
+                    [self setViewpointCenter:thePlayer.python.position];
                 
+                    // Start the battle scene if we hit a monster
+                    if (arc4random() % 215 < 2)
+                    {
+                        [[SKControllerEngine getSharedEngine] changeToBattle];
+                    }
+                }
                 return YES;
             }
         }
@@ -189,6 +198,24 @@
     int y = ((currentMap.mapSize.height * currentMap.tileSize.height) - position.y) / currentMap.tileSize.height;
     return ccp(x,y);
 }
+
+-(BOOL)isCollision: (CGPoint) position
+{
+    
+    CGPoint tileCoord = [self tileCoordForPosition:[thePlayer getMovePosition:position]];
+    int tileGid = [_meta tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [currentMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = [properties valueForKey:@"Collidable"];
+            if (collision && [collision compare:@"True"] == NSOrderedSame) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
 
 -(void)setViewpointCenter:(CGPoint) position
 {
