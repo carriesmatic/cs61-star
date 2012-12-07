@@ -20,6 +20,7 @@
     CCAction *_walkDownAction;
     CCAction *_walkLeftAction;
     CCAction *_walkRightAction;
+    CCAction *_battleAction;
     CCSpriteBatchNode *_spriteSheet;
 
 }
@@ -32,6 +33,7 @@
 @property (nonatomic, retain) CCAction *walkDownAction;
 @property (nonatomic, retain) CCAction *walkLeftAction;
 @property (nonatomic, retain) CCAction *walkRightAction;
+@property (nonatomic, retain) CCAction *battleAction;
 @property (nonatomic, retain) CCSpriteBatchNode *spriteSheet;
 
 -(CCSpriteBatchNode*) getSpriteSheet;

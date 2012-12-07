@@ -16,6 +16,7 @@
 @synthesize walkDownAction = _walkDownAction;
 @synthesize walkLeftAction = _walkLeftAction;
 @synthesize walkRightAction = _walkRightAction;
+@synthesize battleAction = _battleAction;
 @synthesize spriteSheet = _spriteSheet;
 
 -(id)init
@@ -59,11 +60,19 @@
               [NSString stringWithFormat:@"pythonwalkright %d.png", i]]];
         }
         
+        NSMutableArray *battleAnimFrames = [NSMutableArray array];
+        for(int i = 1; i <= 2; ++i) {
+            [battleAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"battlepython %d.png", i]]];
+        }
+        
         // Create the animation object
         CCAnimation *walkDownAnim = [CCAnimation animationWithSpriteFrames:walkDownAnimFrames delay:0.3f];
         CCAnimation *walkUpAnim = [CCAnimation animationWithSpriteFrames:walkUpAnimFrames delay:0.3f];
         CCAnimation *walkLeftAnim = [CCAnimation animationWithSpriteFrames:walkLeftAnimFrames delay:0.3f];
         CCAnimation *walkRightAnim = [CCAnimation animationWithSpriteFrames:walkRightAnimFrames delay:0.3f];
+        CCAnimation *battleAnim = [CCAnimation animationWithSpriteFrames:battleAnimFrames delayPerUnit:.3f];
         
         // Create the sprite and set up the animation objects
         CGSize winSize = [CCDirector sharedDirector].winSize;
@@ -75,6 +84,7 @@
         self.walkUpAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkUpAnim]];
         self.walkLeftAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkLeftAnim]];
         self.walkRightAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkRightAnim]];
+        self.battleAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:battleAnim]];
         
         // Stop antialiasing
         [[_spriteSheet texture] setAliasTexParameters];
@@ -129,6 +139,12 @@
     
     [_python setPosition:ccp(newXPosition,newYPosition)];
     [self changeDirection: direction];
+}
+
+-(void) runBattleAnimation
+{
+    [_python stopAllActions];
+    [_python runAction:_battleAction];
 }
 
 -(void) dealloc

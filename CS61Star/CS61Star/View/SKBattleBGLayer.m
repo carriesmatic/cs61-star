@@ -10,16 +10,27 @@
 
 @implementation SKBattleBGLayer
 
+@synthesize currentMap = _currentMap;
+
 -(id) init
 {
     self = [super init];
     
     if (self)
     {
+        self.currentMap = [[CCTMXTiledMap alloc] initWithTMXFile:@"circuits.tmx"];
         
+        [self addChild:self.currentMap];
     }
     
     return self;
+}
+
+-(void) dealloc
+{
+    [self.currentMap autorelease];
+    
+    [super dealloc];
 }
 
 @end
