@@ -35,6 +35,9 @@
 
 -(BOOL) loadGameState;
 -(BOOL) saveGameState;
+-(void) changeToOverWorld;
+-(void) changeToBattle;
+-(void) changeToTitle;
 -(SKGameState*) getCurrentState;
 +(SKControllerEngine*) getSharedEngine;
 @end

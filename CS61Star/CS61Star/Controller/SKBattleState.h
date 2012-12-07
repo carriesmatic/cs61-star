@@ -11,4 +11,6 @@
 
 @interface SKBattleState : SKGameState
 
+-(void) update;
+
 @end
