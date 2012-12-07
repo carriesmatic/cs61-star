@@ -10,7 +10,6 @@
 #import "cocos2d.h"
 #import "SKOverworldHUDLayer.h"
 #import "SKOverWorldLayer.h"
-#import "SKDialogueBoxLayer.h"
 
 @interface SKOverWorldScene : CCScene {
     SKOverworldHUDLayer* _hudLayer;

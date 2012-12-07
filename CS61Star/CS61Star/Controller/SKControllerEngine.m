@@ -78,6 +78,7 @@ SKControllerEngine* shared;
     [self.currScene autorelease];
     self.currScene = [[SKOverWorldScene alloc] init];
     [director runWithScene: self.currScene];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"dungeon.caf"];
 }
 
@@ -99,6 +100,7 @@ SKControllerEngine* shared;
     
     self.currScene = [[SKTitleScreenScene alloc] init];
     [director runWithScene: self.currScene];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mainmenu.caf"];
 }
 
 -(void) startNewGame
