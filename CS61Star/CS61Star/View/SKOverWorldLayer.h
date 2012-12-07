@@ -16,6 +16,7 @@
     CCTMXTiledMap* currentMap;
     NSMutableArray* npcList;
     NSMutableArray* hudElements;
+    SKPlayer* thePlayer;
 }
 
 @property (retain, nonatomic) CCTMXTiledMap* currentMap;
