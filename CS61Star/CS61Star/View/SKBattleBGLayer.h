@@ -10,5 +10,9 @@
 #import "cocos2d.h"
 
 @interface SKBattleBGLayer : CCLayer
+{
+    CCTMXTiledMap* _currentMap;
+}
+@property (retain, nonatomic) CCTMXTiledMap* currentMap;
 
 @end
