@@ -71,14 +71,14 @@ SKControllerEngine* shared;
 {
     [currState autorelease];
     currState = [[SKOverWorldState alloc] init];
-    [director runWithScene: [currState getCurrentScene]];
+    [director replaceScene: [CCTransitionCrossFade transitionWithDuration:0.3f scene:[currState getCurrentScene]]];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"dungeon.caf"];
 }
 
 -(void) changeToBattle
 {
     currState = [[SKBattleState alloc] init];
-    [director pushScene: [CCTransitionPageTurn transitionWithDuration:0.5f scene:[currState getCurrentScene] backwards:NO]];
+    [director replaceScene: [CCTransitionPageTurn transitionWithDuration:0.5f scene:[currState getCurrentScene] backwards:NO]];
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"battle.caf"];
     
@@ -94,8 +94,9 @@ SKControllerEngine* shared;
 -(void) startNewGame
 {
     // Starts a new game!
-    currState = [[SKOverWorldState alloc] init];
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"dungeon.caf"];
+//    currState = [[SKOverWorldState alloc] init];
+//    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"dungeon.caf"];
+    [self changeToTitle];
     
 }
 
