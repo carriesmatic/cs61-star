@@ -11,12 +11,18 @@
 
 @implementation SKBattleHUDLayer
 
+@synthesize attackLabel = _attackLabel;
+@synthesize playerDamage = _playerDamage;
+@synthesize enemyDamage = _enemyDamage;
+
 -(id) init
 {
     self = [super init];
     
     if (self)
     {
+        
+        player = [[SKControllerEngine getSharedEngine] thePlayer];
         
         _statBackground = [CCSprite spriteWithFile:@"hudbackground.png"];
         
@@ -43,9 +49,6 @@
         [_atbBar setPosition:ccp(215, 175)];
         
         [self addChild:_atbBar];
-
-        
-        
         
         _statBar = [CCSprite spriteWithFile:@"hudoverlay.png"];
         
@@ -59,9 +62,16 @@
         
         [self addChild:_statBar];
         
-
+        self.attackLabel = [CCLabelTTF labelWithString:@"ATTACK" fontName:@"8BITWONDERNominal" fontSize:24];
+        [self.attackLabel setPosition:ccp(110,165)];
+        [self addChild:self.attackLabel];
         
-
+        self.playerDamage = [CCLabelTTF labelWithString:@"9001" fontName:@"8BITWONDERNominal" fontSize:24];
+        [self.playerDamage setString:@"9001"];
+        [self.playerDamage setVisible:YES];
+        [self.playerDamage setPosition:ccp(775, 600)];
+        
+        [self addChild:self.playerDamage];
     }
     
     return self;
@@ -69,6 +79,6 @@
 
 -(void) update: (ccTime) dt
 {
-    [_atbBar setScaleX: 7 * [[[SKControllerEngine getSharedEngine] thePlayer] curr_atb]];
+    [_atbBar setScaleX: 7 * [player curr_atb]];
 }
 @end

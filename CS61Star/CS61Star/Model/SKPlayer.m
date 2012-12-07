@@ -206,9 +206,13 @@
     }
     else
     {
-         NSLog(@"%f",self.atb_rate);
         self.curr_atb += self.atb_rate*dt;
     }
+}
+
+-(CGPoint) getPosition
+{
+    return [_python position];
 }
 
 @end

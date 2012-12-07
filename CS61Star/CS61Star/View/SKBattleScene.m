@@ -32,7 +32,7 @@
         [self addChild: self.hudLayer];
         
         self.player = [[SKControllerEngine getSharedEngine] thePlayer];
-        
+        self.enemy = [[SKEnemy alloc] init];
     }
     return self;
 }
@@ -62,7 +62,6 @@
 -(void) update: (ccTime) dt
 {
     [self.player battleUpdate: dt];
-    
     [self.enemy battleUpdate: dt];
     if(self.enemy.atbReady){
         [self.enemy attack:self.player];

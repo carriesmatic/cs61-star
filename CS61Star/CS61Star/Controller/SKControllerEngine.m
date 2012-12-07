@@ -78,6 +78,7 @@ SKControllerEngine* shared;
     [self.currScene autorelease];
     self.currScene = [[SKOverWorldScene alloc] init];
     [director runWithScene: self.currScene];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"dungeon.caf"];
 }
 
@@ -92,17 +93,22 @@ SKControllerEngine* shared;
 
 -(void) changeToTitle
 {
-    [self.currScene autorelease];
+    if(self.currScene)
+    {
+        [self.currScene autorelease];
+    }
+    
     self.currScene = [[SKTitleScreenScene alloc] init];
     [director runWithScene: self.currScene];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mainmenu.caf"];
 }
 
 -(void) startNewGame
 {
     // Starts a new game!
-    self.currScene = [[SKOverWorldScene alloc] init];
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"dungeon.caf"];
-    
+    //self.currScene = [[SKOverWorldScene alloc] init];
+    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"dungeon.caf"];
+    [self changeToTitle];
 }
 
 -(BOOL) loadGameState
