@@ -24,8 +24,10 @@
     if(self)
     {
         self.mapLayer = [[SKOverWorldLayer alloc] init];
-        
         [self addChild: self.mapLayer];
+        
+        self.hudLayer = [[SKOverworldHUDLayer alloc] init];
+        [self addChild: self.hudLayer];
     }
     
     return self;
@@ -38,6 +40,8 @@
     {
         self.mapLayer = [[SKOverWorldLayer alloc] initWithMap: map];
         [self addChild: self.mapLayer];
+        self.hudLayer = [[SKOverworldHUDLayer alloc] init];
+        [self addChild: self.hudLayer];
     }
     return self;
 }

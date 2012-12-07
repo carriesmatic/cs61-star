@@ -17,23 +17,25 @@
     
     if(self)
     {
-        CCMenu * myMenu = [CCMenu menuWithItems:nil];
-        CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"testbutton.png"
-                                                            selectedImage: @"testbutton.png"
-                                                                   target:self
-                                                                 selector:@selector(doSomething:)];
-        [myMenu addChild: menuItem1];
-        [myMenu alignItemsVertically];
-        [myMenu alignItemsHorizontally];
-        [self addChild:myMenu];
+        // Get window size
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        
+        // Create the HUD item
+        _statHUD = [CCSprite spriteWithFile:@"statHUD.png"];
+        [_statHUD setPosition:ccp(55, winSize.height - 55)];
+        [_statHUD setScale: 3];
+        
+        // Health bground: (187, 123, 121)
+        // Mana bground: (111, 144, 172)
+        // EXP bground: (124, 174, 111)
+        
+        
+        // Add our HUD item to the layer
+        [self addChild: _statHUD];
     }
     
     return self;
 }
 
--(id)doSomething: (CCMenuItem*) menuitem
-{
-    return nil;
-}
 
 @end

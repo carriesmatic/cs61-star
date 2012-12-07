@@ -10,7 +10,9 @@
 #import "CCMenuItem.h"
 
 @interface SKOverworldHUDLayer : CCLayer
+{
+    CCSprite* _statHUD;
+}
 
--(id)doSomething: (CCMenuItem*) menuitem;
 
 @end
