@@ -118,12 +118,12 @@
     float newXPosition = pythonPosition.x + directionOffset.x;
     float newYPosition = pythonPosition.y + directionOffset.y;
     
-    if ((newXPosition < 0.0f) || (newYPosition < 0.0f)) {
-        return; // Do not move
-    }
-    if ((newXPosition > size.width) || (newYPosition > size.height)) {
-        return; // Do not move
-    }
+//    if ((newXPosition < 0.0f) || (newYPosition < 0.0f)) {
+//        return; // Do not move
+//    }
+//    if ((newXPosition > size.width) || (newYPosition > size.height)) {
+//        return; // Do not move
+//    }
     
     [_python setPosition:ccp(newXPosition,newYPosition)];
     [self changeDirection: direction];

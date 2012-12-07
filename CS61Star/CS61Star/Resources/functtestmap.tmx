@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="terrain_atlas" tilewidth="32" tileheight="32">
+  <image source="../terrain_atlas.png" width="1024" height="1024"/>
+ </tileset>
+ <tileset firstgid="1025" name="Meta" tilewidth="32" tileheight="32">
+  <image source="meta_tiles.png" width="67" height="34"/>
+  <tile id="0">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="Collectable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Ground" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMA6Dx/iEWdTkOCvaSqqqqqqqqqqqq6vMDj3IuYw==
+  </data>
+ </layer>
+ <layer name="Under" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztms0NwjAMhR04A5MAG7ABcGNPYBBUsQczkApFqpBr0vw0MXmfZLU9pH3PdtJUKhHRZak7HIfBOXfdCtp8a9KrSatmSue59PPHqFUXSAtX59fiE1O52nvdCsb9y4vzMQwfOuFdPwdPDx8+XrpI7StDtGZiY/zG1+Jja/XumNhH+Oj74h985KrHw4wfJR/SuDEfIaSY17H1SEnvR/KUsx5z8atmNdUjhqPVe2LirMwH0IVbQ0rsefC9ATim9kVMH6EHAWgT37mPNQJopKW+lby2lIccIH9pcflEXgGQ0TBHUmvEvyZhhO4BtOc3l37teamNN8/ubac=
+  </data>
+ </layer>
+ <layer name="Under2" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztw0EJAAAIBLDD/n/rmsAA4gZLAAAA7uraAwAAAAAA8MsAvDUEMA==
+  </data>
+ </layer>
+ <objectgroup name="Objects" width="50" height="50">
+  <object name="SpawnPoint" gid="468" x="288" y="544"/>
+ </objectgroup>
+ <layer name="Active" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAADg3wAnEAAB
+  </data>
+ </layer>
+ <layer name="Over" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt08EJhDAUANGINYqViGV4UsuwlsVKVhswHr0ExCxOlhn4BAIhPEKaOhRfGw3dHzh6Hah0sNLBSgcrHax0hDBU6TX3uVRPHEuVXnOfS+V7lPEen5f//nrzfh2/Tce1b9zbXpw9k6O0dLDSwUoHKx2sdLDSwUoHKx2sdLDSwUoHKx2sdLA6HWOcqfCZ4xwZ6oYy
+  </data>
+ </layer>
+ <layer name="Curtain" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAADg3wAnEAAB
+  </data>
+ </layer>
+ <layer name="Meta" width="50" height="50" opacity="0">
+  <data encoding="base64" compression="zlib">
+   eJzt2FEKgCAQANGK7n/mPkKQSFjQ2lFmYPEnqkdI0X5u277IzJ4OVjpY6WCl49+O855WLUf2e/l5T8VRT9SRWcRRW75y9H4Drewo6+yOr55HOeZtjezh1hq9/vNesvf0iFZ/HrT9Eb1e73la553d0dtIR/aMcMyWDlY6WOlgpYOVDlY6WOlgpYOVDlY6WOlgpYOVDlbZ/3BHzgXTmAdy
+  </data>
+ </layer>
+</map>

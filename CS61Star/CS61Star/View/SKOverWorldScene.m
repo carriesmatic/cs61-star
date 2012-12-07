@@ -12,7 +12,10 @@
 
 @implementation SKOverWorldScene
 
-@synthesize meta = _meta;
+@synthesize mapLayer = _mapLayer;
+@synthesize hudLayer = _hudLayer;
+
+
 
 -(id)init
 {
@@ -20,8 +23,9 @@
     
     if(self)
     {
-        self.layer = [[SKOverWorldLayer alloc] init];
-        [self addChild: _layer];
+        self.mapLayer = [[SKOverWorldLayer alloc] init];
+        
+        [self addChild: self.mapLayer];
     }
     
     return self;
@@ -32,8 +36,8 @@
     self = [super init];
     if(self)
     {
-        self.layer = [[SKOverWorldLayer alloc] initWithMap: map];
-        [self addChild: _layer];
+        self.mapLayer = [[SKOverWorldLayer alloc] initWithMap: map];
+        [self addChild: self.mapLayer];
     }
     return self;
 }
@@ -45,22 +49,16 @@
 
 -(void)changeMap:(CCTMXTiledMap *)newMap
 {
-    [self.layer changeMap:newMap];
+    [self.mapLayer changeMap:newMap];
 }
 
 -(void)dealloc
 {
-    [self.layer release];
-    self.meta = nil;
+    [self.mapLayer release];
     
     [super dealloc];
 }
 
--(CGPoint)tileCoordForPosition:(CGPoint)position
-{
-    int x = position.x / _tileMap.tileSize.width;
-    int y = ((_tileMap.mapSize.height * _tileMap.tileSize.height) - position.y) / _tileMap.tileSize.height;
-    return ccp(x,y);
-}
+
 
 @end
