@@ -15,19 +15,26 @@
 #import "CCNode.h"
 #import "SKGameState.h"
 #import "cocos2d.h"
-#import "SKModelLogic.h"
+#import "SKMapModel.h"
+#import "SKPlayer.h"
+#import "SKBattle.h"
 
 @interface SKControllerEngine : CCNode
 {
     SKGameState* currState;
     CCDirectorMac* director;
-    SKModelLogic* data; // Manages the model data
-    
+
+    SKPlayer* _thePlayer; // The badass hacker hero of fate.
+    SKMapModel* _currMap; // The current location where our hero resides.
+    SKBattle* _currBattle; // The current battle, if applicable.
 }
 
+@property (nonatomic, retain) SKPlayer* thePlayer;
+@property (nonatomic, retain) SKMapModel* currMap;
+@property (nonatomic, retain) SKBattle * currBattle;
 
 -(BOOL) loadGameState;
 -(BOOL) saveGameState;
--(CCScene*) getCurrentScene;
+-(SKGameState*) getCurrentState;
 +(SKControllerEngine*) getSharedEngine;
 @end

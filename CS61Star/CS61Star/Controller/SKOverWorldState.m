@@ -16,7 +16,6 @@
     self = [super init];
     if(self)
     {
-        CCTMXTiledMap* map = [[CCTMXTiledMap alloc] initWithTMXFile:@"testmap.tmx"];
         currScene = [[SKOverWorldScene alloc] init];
     }
     
