@@ -75,9 +75,8 @@ SKControllerEngine* shared;
 
 -(void) changeToBattle
 {
-    [currState autorelease];
     currState = [[SKBattleState alloc] init];
-    [director runWithScene: [currState getCurrentScene]];
+    [director pushScene: [CCTransitionPageTurn transitionWithDuration:0.5f scene:[currState getCurrentScene] backwards:NO]];
 }
 
 -(void) changeToTitle
@@ -126,7 +125,6 @@ SKControllerEngine* shared;
     
     // Return yes if everything went swimmingly.
     return YES;
-    
 }
 
 -(SKGameState*) getCurrentState

@@ -7,7 +7,23 @@
 //
 
 #import "SKBattleState.h"
+#import "SKBattleScene.h"
 
 @implementation SKBattleState
+-(id)init
+{
+    
+    self = [super init];
+    if(self)
+    {
+        currScene = [[SKBattleScene alloc] init];
+    }
+    
+    return self;
+}
 
+-(void)update
+{
+    
+}
 @end
