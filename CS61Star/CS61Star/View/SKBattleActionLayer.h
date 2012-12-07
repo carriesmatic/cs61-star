@@ -14,4 +14,7 @@
     CCSprite* _playerSprite;
     CCSprite* _enemySprite; 
 }
+
+-(BOOL) ccKeyDown:(NSEvent *)event;
+
 @end
