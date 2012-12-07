@@ -7,7 +7,11 @@
 //
 
 #import "CCLayer.h"
+#import "cocos2d.h"
 
 @interface SKBattleHUDLayer : CCLayer
+{
+    CCSprite* _statBar;
+}
 
 @end
